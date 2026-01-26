@@ -8,38 +8,64 @@
   body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background: #f5f5f5;
+  }
+
+  /* Header with airplane icons */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .header img {
+    height: 50px;
   }
   h1 {
     text-align: center;
     color: #1e3d59;
+    margin: 0;
+    font-size: 1.5em;
   }
+
+  /* Search panel */
   .search-panel {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 20px;
     gap: 10px;
+    margin-bottom: 20px;
   }
-  select, input[type="date"], button {
+  select, input[type="date"], button, #tableSearch {
     padding: 10px;
     font-size: 1em;
+    min-width: 120px;
+    box-sizing: border-box;
   }
   button {
     background-color: #1e3d59;
     color: #fff;
     border: none;
     cursor: pointer;
+    min-width: 100px;
   }
   button:hover {
     background-color: #16334a;
   }
+
+  /* Table wrapper for horizontal scroll */
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
-    margin-top: 20px;
+    min-width: 600px;
   }
   th, td {
     padding: 10px;
@@ -50,26 +76,43 @@
   th {
     background-color: #1e3d59;
     color: white;
+    white-space: nowrap;
   }
-  img.airline-logo {
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 5px;
-  }
+
+  /* Responsive adjustments */
   @media(max-width: 768px) {
-    .search-panel {
-      flex-direction: column;
-      align-items: center;
+    h1 {
+      font-size: 1.3em;
+    }
+    .header img {
+      height: 40px;
+    }
+    select, input[type="date"], button, #tableSearch {
+      font-size: 0.9em;
+      min-width: 100%;
     }
     table, th, td {
       font-size: 0.8em;
+    }
+  }
+
+  @media(max-width: 480px) {
+    h1 {
+      font-size: 1.1em;
+    }
+    .header img {
+      height: 30px;
     }
   }
 </style>
 </head>
 <body>
 
-<h1>Fly PakRail - Pakistan Flights</h1>
+<div class="header">
+  <img src="flight-left.png" alt="Flight Left">
+  <h1>Fly PakRail - Pakistan Flights</h1>
+  <img src="flight-right.png" alt="Flight Right">
+</div>
 
 <div class="search-panel">
   <label for="fromCity">From:</label>
@@ -89,24 +132,28 @@
   <input type="date" id="flightDate" value="2026-01-26">
 
   <button onclick="loadFlights()">Search</button>
+
+  <input type="text" id="tableSearch" placeholder="Search table..." onkeyup="searchTable()">
 </div>
 
-<table id="flightsTable">
-  <thead>
-    <tr>
-      <th>Flight</th>
-      <th>Airline</th>
-      <th>From</th>
-      <th>To</th>
-      <th>Scheduled</th>
-      <th>Estimated</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td colspan="7">Select From/To airport and date, then click Search</td></tr>
-  </tbody>
-</table>
+<div class="table-wrapper">
+  <table id="flightsTable">
+    <thead>
+      <tr>
+        <th>Flight</th>
+        <th>Airline</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Scheduled</th>
+        <th>Estimated</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="7">Select From/To airport and date, then click Search</td></tr>
+    </tbody>
+  </table>
+</div>
 
 <script>
 async function loadFlights() {
@@ -131,7 +178,7 @@ async function loadFlights() {
     data.forEach(f => {
       tbody.innerHTML += `<tr>
         <td>${f.FlightNumber}</td>
-        <td><img class="airline-logo" src="https://mobile.caapakistan.com.pk/images/${f.Logo}" alt="${f.Logo}">${f.Logo.replace(/\.png|\.jpg|\.jpeg/g,'')}</td>
+        <td>${f.Logo.replace(/\.png|\.jpg|\.jpeg/g,'')}</td>
         <td>${f.EnglishFromCity}</td>
         <td>${f.EnglishToCity}</td>
         <td>${f.ST}</td>
@@ -142,6 +189,18 @@ async function loadFlights() {
   } catch (err) {
     tbody.innerHTML = `<tr><td colspan="7">Error fetching flight data. Please try again later.</td></tr>`;
     console.error(err);
+  }
+}
+
+// Search table function
+function searchTable() {
+  const input = document.getElementById("tableSearch").value.toLowerCase();
+  const table = document.getElementById("flightsTable");
+  const rows = table.getElementsByTagName("tr");
+
+  for (let i = 1; i < rows.length; i++) {
+    const rowText = rows[i].textContent.toLowerCase();
+    rows[i].style.display = rowText.includes(input) ? "" : "none";
   }
 }
 </script>
