@@ -1,0 +1,39 @@
+<select id="fromCity">
+  <option value="karachi">Karachi</option>
+</select>
+<select id="toCity">
+  <option value="islamabad">Islamabad</option>
+  <option value="lahore">Lahore</option>
+</select>
+<input type="date" id="flightDate" value="2026-01-26">
+<button onclick="loadFlights()">Search</button>
+
+<table id="flightsTable">
+  <thead>
+    <tr><th>Flight</th><th>Airline</th><th>From</th><th>To</th><th>ST</th><th>ET</th><th>Status</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+function loadFlights() {
+  const date = document.getElementById("flightDate").value;
+  fetch(`https://script.google.com/macros/s/AKfycbz72VQ5w5CMspbdiv9FxwyF-8P-mtLg_PXUiAXHNwFE27Fi74ckcErsnqVQKYom-XNJ/exec?date=${date}`)
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.getElementById("flightsTable").querySelector("tbody");
+      tbody.innerHTML = "";
+      data.forEach(f => {
+        tbody.innerHTML += `<tr>
+          <td>${f.FlightNumber}</td>
+          <td><img src="https://mobile.caapakistan.com.pk/images/${f.Logo}" height="20">${f.Logo.replace(".png","")}</td>
+          <td>${f.EnglishFromCity}</td>
+          <td>${f.EnglishToCity}</td>
+          <td>${f.ST}</td>
+          <td>${f.ET}</td>
+          <td>${f.EnglishRemarks}</td>
+        </tr>`;
+      });
+    });
+}
+</script>
