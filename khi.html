@@ -3,128 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Pakistan Flights</title>
+<title> Pakistan Flights Schedule</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 10px;
-    background: #f5f5f5;
+  body { font-family: Arial, sans-serif; margin:0; padding:10px; background:#f5f5f5; }
+  .header { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+  h1 { text-align:center; color:#1e3d59; margin:0; font-size:1.5em; }
+  h2 { text-align:center; margin:0 0 10px 0; font-size:1.2em; color:#333; }
+
+  .search-panel { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:20px; }
+  select, input[type="date"], button, #tableSearch { padding:10px; font-size:1em; min-width:120px; box-sizing:border-box; }
+  button { background-color:#1e3d59; color:#fff; border:none; cursor:pointer; min-width:100px; }
+  button:hover { background-color:#16334a; }
+
+  .table-wrapper { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; background:#fff; min-width:600px; }
+  th, td { padding:10px; border:1px solid #ccc; text-align:center; font-size:0.9em; }
+  th { background-color:#1e3d59; color:white; white-space:nowrap; }
+
+  @media(max-width:768px) {
+    h1 { font-size:1.3em; }
+    select, input[type="date"], button, #tableSearch { font-size:0.9em; min-width:100%; }
+    table, th, td { font-size:0.8em; }
   }
 
-  /* Header with airplane icons */
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .header img {
-    height: 50px;
-  }
-  h1 {
-    text-align: center;
-    color: #1e3d59;
-    margin: 0;
-    font-size: 1.5em;
-  }
-
-  /* Search panel */
-  .search-panel {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  select, input[type="date"], button, #tableSearch {
-    padding: 10px;
-    font-size: 1em;
-    min-width: 120px;
-    box-sizing: border-box;
-  }
-  button {
-    background-color: #1e3d59;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    min-width: 100px;
-  }
-  button:hover {
-    background-color: #16334a;
-  }
-
-  /* Table wrapper for horizontal scroll */
-  .table-wrapper {
-    overflow-x: auto;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    min-width: 600px;
-  }
-  th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-    font-size: 0.9em;
-  }
-  th {
-    background-color: #1e3d59;
-    color: white;
-    white-space: nowrap;
-  }
-
-  /* Responsive adjustments */
-  @media(max-width: 768px) {
-    h1 {
-      font-size: 1.3em;
-    }
-    .header img {
-      height: 40px;
-    }
-    select, input[type="date"], button, #tableSearch {
-      font-size: 0.9em;
-      min-width: 100%;
-    }
-    table, th, td {
-      font-size: 0.8em;
-    }
-  }
-
-  @media(max-width: 480px) {
-    h1 {
-      font-size: 1.1em;
-    }
-    .header img {
-      height: 30px;
-    }
+  @media(max-width:480px) {
+    h1 { font-size:1.1em; }
   }
 </style>
 </head>
 <body>
 
 <div class="header">
-
   <h1>Jinnah International Airport - Karachi</h1>
-  <br>
-  <h2>Flight Schedule</h2>
- 
 </div>
+<h2>Flight Schedule</h2>
 
 <div class="search-panel">
   <label for="fromCity">From:</label>
   <select id="fromCity">
     <option value="karachi">Karachi</option>
-    <!-- Add more airports if needed -->
   </select>
 
   <label for="toCity">To:</label>
   <select id="toCity">
+    <option value="">All</option>
     <option value="islamabad">Islamabad</option>
     <option value="lahore">Lahore</option>
     <!-- Add more destinations -->
@@ -133,7 +55,7 @@
   <label for="flightDate">Date:</label>
   <input type="date" id="flightDate" value="2026-01-26">
 
-  <button onclick="loadFlights()">Search</button>
+  <button onclick="filterFlights()">Filter</button>
 
   <input type="text" id="tableSearch" placeholder="Search table..." onkeyup="searchTable()">
 </div>
@@ -152,49 +74,63 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td colspan="7">Select From/To airport and date, then click Search</td></tr>
+      <tr><td colspan="7">Loading flights...</td></tr>
     </tbody>
   </table>
 </div>
 
 <script>
-async function loadFlights() {
-  const from = document.getElementById("fromCity").value;
-  const to = document.getElementById("toCity").value;
-  const date = document.getElementById("flightDate").value;
+let allFlights = []; // Store all fetched flights
 
+// Fetch all flights once
+async function loadFlights() {
+  const date = document.getElementById("flightDate").value;
   const tbody = document.getElementById("flightsTable").querySelector("tbody");
   tbody.innerHTML = `<tr><td colspan="7">Loading flights...</td></tr>`;
 
   try {
-    // Replace YOUR_SCRIPT_ID with your GAS Web App ID
-    const response = await fetch(`https://script.google.com/macros/s/AKfycbz72VQ5w5CMspbdiv9FxwyF-8P-mtLg_PXUiAXHNwFE27Fi74ckcErsnqVQKYom-XNJ/exec?from=${from}&to=${to}&date=${date}`);
+    const response = await fetch(`https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?date=${date}`);
     const data = await response.json();
-
-    if (!data || data.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="7">No flights found for selected route/date.</td></tr>`;
-      return;
-    }
-
-    tbody.innerHTML = "";
-    data.forEach(f => {
-      tbody.innerHTML += `<tr>
-        <td>${f.FlightNumber}</td>
-        <td>${f.Logo.replace(/\.png|\.jpg|\.jpeg/g,'')}</td>
-        <td>${f.EnglishFromCity}</td>
-        <td>${f.EnglishToCity}</td>
-        <td>${f.ST}</td>
-        <td>${f.ET || '-'}</td>
-        <td>${f.EnglishRemarks}</td>
-      </tr>`;
-    });
+    allFlights = data; // Save globally
+    renderTable(allFlights);
   } catch (err) {
-    tbody.innerHTML = `<tr><td colspan="7">Error fetching flight data. Please try again later.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7">Error fetching flight data.</td></tr>`;
     console.error(err);
   }
 }
 
-// Search table function
+// Render flights in table
+function renderTable(flights) {
+  const tbody = document.getElementById("flightsTable").querySelector("tbody");
+  if (!flights || flights.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7">No flights available.</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = "";
+  flights.forEach(f => {
+    tbody.innerHTML += `<tr>
+      <td>${f.FlightNumber}</td>
+      <td>${f.Logo.replace(/\.png|\.jpg|\.jpeg/g,'')}</td>
+      <td>${f.EnglishFromCity}</td>
+      <td>${f.EnglishToCity}</td>
+      <td>${f.ST}</td>
+      <td>${f.ET || '-'}</td>
+      <td>${f.EnglishRemarks}</td>
+    </tr>`;
+  });
+}
+
+// Filter table based on dropdown
+function filterFlights() {
+  const toCity = document.getElementById("toCity").value.toLowerCase();
+  let filtered = allFlights;
+  if (toCity) {
+    filtered = allFlights.filter(f => f.EnglishToCity.toLowerCase() === toCity);
+  }
+  renderTable(filtered);
+}
+
+// Search table
 function searchTable() {
   const input = document.getElementById("tableSearch").value.toLowerCase();
   const table = document.getElementById("flightsTable");
@@ -205,6 +141,9 @@ function searchTable() {
     rows[i].style.display = rowText.includes(input) ? "" : "none";
   }
 }
+
+// Initial load
+loadFlights();
 </script>
 
 </body>
