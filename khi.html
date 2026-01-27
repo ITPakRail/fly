@@ -41,17 +41,21 @@
   .main-layout {
     display:flex;
     gap:10px;
-    align-items:stretch;
+    align-items:flex-start; /* IMPORTANT: stop stretching */
   }
 
   .ad-panel {
     width:160px;
+    height:calc(100vh - 260px); /* fixed viewport height */
     background:#eaeaea;
     display:flex;
     align-items:center;
     justify-content:center;
     color:#666;
     font-size:14px;
+    flex-shrink:0;
+    position:sticky;
+    top:10px;
   }
 
   .table-wrapper {
@@ -80,10 +84,10 @@
   }
 
   /* ===== REDUCE COLUMN WIDTHS ===== */
-  th:nth-child(4), td:nth-child(4) { width:90px; }   /* To */
-  th:nth-child(5), td:nth-child(5) { width:80px; }   /* Scheduled */
-  th:nth-child(6), td:nth-child(6) { width:80px; }   /* Estimated */
-  th:nth-child(7), td:nth-child(7) { width:90px; }   /* Status */
+  th:nth-child(4), td:nth-child(4) { width:90px; }
+  th:nth-child(5), td:nth-child(5) { width:80px; }
+  th:nth-child(6), td:nth-child(6) { width:80px; }
+  th:nth-child(7), td:nth-child(7) { width:90px; }
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:768px) {
@@ -119,7 +123,7 @@
   </select>
 
   <label for="flightDate">Date:</label>
-  <input type="date" id="flightDate" value="2026-01-26">
+  <input type="date" id="flightDate">
 
   <button onclick="filterFlights()">Filter</button>
 
@@ -162,6 +166,10 @@
 </div>
 
 <script>
+/* ===== SET TODAY DATE ===== */
+const today = new Date().toISOString().split("T")[0];
+document.getElementById("flightDate").value = today;
+
 let allFlights = [];
 
 /* ================= FETCH FLIGHTS ================= */
