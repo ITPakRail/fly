@@ -90,20 +90,29 @@
   th:nth-child(7), td:nth-child(7) { width:90px; }
 
 /* ===== DESKTOP DEFAULT ===== */
-  nav {
-  display: flex;               /* REQUIRED */
+nav {
+  display: flex;
   align-items: center;
   gap: 15px;
+  background: #0b2c4d;
+  padding: 10px;
 }
 
 nav button {
-  display: none;               /* hide menu button on PC */
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
 }
 
 nav a {
+  color: white;
   text-decoration: none;
   padding: 8px 12px;
 }
+
   /* ===== RESPONSIVE ===== */
   @media(max-width:768px) {
     h1 { font-size:1.3em; }
@@ -114,8 +123,9 @@ nav a {
     table, th, td { font-size:0.8em; }
     .ad-panel { display:none; }
 
-     nav {
+   nav {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   nav button {
@@ -124,13 +134,14 @@ nav a {
 
   nav a {
     display: none;
+    width: 100%;
   }
 
-  nav a.active {
+  nav.show a {
     display: block;
   }
-
-  }
+}
+  
 
   @media(max-width:480px) {
     h1 { font-size:1.1em; }
