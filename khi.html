@@ -227,6 +227,10 @@ nav a {
 </div>
 
 <script>
+  function toggleMenu() {
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => link.classList.toggle('active'));
+}
 /* ===== SET TODAY DATE ===== */
 const today = new Date().toISOString().split("T")[0];
 document.getElementById("flightDate").value = today;
@@ -332,9 +336,7 @@ function searchTable() {
 /* ================= INITIAL LOAD ================= */
 loadFlights();
 
-  function toggleMenu() {
-  document.getElementById("menu").classList.toggle("show");
-}
+
 </script>
 
 </body>
