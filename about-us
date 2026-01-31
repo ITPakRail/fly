@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - fly.pakrail.online</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    color: #333;
+    line-height: 1.7;
+}
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+nav {
+    background: #1b5e20;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+nav a:hover {
+    background: #81c784;
+    color: #000;
+}
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+h2 {
+    color: #2e7d32;
+    margin-top: 20px;
+}
+.footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>fly.pakrail.online</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="paa.html">PAA Info</a>
+  <a href="travel-guide.html">Travel Guide</a>
+  <a href="safety.html">Safety</a>
+  <a href="flight-journey.html">Journey Stories</a>
+</nav>
+
+<div class="container">
+
+<h2>About Us</h2>
+
+<p>
+<strong>fly.pakrail.online</strong> is an independent informational platform designed to provide users with easy access to flight schedules, aviation-related knowledge, travel guidance, and general awareness about air travel in Pakistan. Our goal is to help travelers, students, and aviation enthusiasts stay informed through clear, simple, and useful content.
+</p>
+
+<p class="urdu">
+<strong>fly.pakrail.online</strong> ایک آزاد معلوماتی ویب سائٹ ہے جس کا مقصد صارفین کو پاکستان میں فلائٹ شیڈول، ہوابازی سے متعلق معلومات، سفری رہنمائی اور عمومی آگاہی فراہم کرنا ہے۔ ہمارا مقصد مسافروں، طلبہ اور ہوابازی میں دلچسپی رکھنے والوں کو سادہ اور مفید معلومات فراہم کرنا ہے۔
+</p>
+
+<h2>Our Purpose / ہمارا مقصد</h2>
+
+<p>
+Air travel has become an essential part of modern transportation. However, many users struggle to find clear and consolidated information about flight schedules, airport procedures, safety guidelines, and travel tips. fly.pakrail.online was created to bridge this gap by offering structured and easy-to-read content for everyone.
+</p>
+
+<p class="urdu">
+ہوائی سفر جدید دور میں نقل و حمل کا ایک اہم ذریعہ بن چکا ہے، لیکن بہت سے افراد کو فلائٹ شیڈول، ایئرپورٹ کے طریقہ کار، حفاظتی ہدایات اور سفری رہنمائی کے بارے میں واضح معلومات حاصل کرنے میں مشکل پیش آتی ہے۔ fly.pakrail.online اسی خلا کو پُر کرنے کے لیے بنایا گیا ہے۔
+</p>
+
+<h2>What We Offer / ہم کیا فراہم کرتے ہیں</h2>
+
+<p>
+Our website covers a wide range of aviation-related topics including:
+</p>
+
+<ul>
+<li>Domestic airport flight schedules</li>
+<li>General information about Pakistan Aviation Authority (PAA)</li>
+<li>Travel guides for air passengers</li>
+<li>Flight classes and seating information</li>
+<li>Aviation and passenger safety awareness</li>
+<li>Flight journey stories and soft reading content</li>
+</ul>
+
+<p class="urdu">
+ہماری ویب سائٹ پر درج ذیل موضوعات شامل ہیں:
+</p>
+
+<ul>
+<li>پاکستان کے مختلف ایئرپورٹس کے فلائٹ شیڈول</li>
+<li>پاکستان ایوی ایشن اتھارٹی سے متعلق عمومی معلومات</li>
+<li>ہوائی مسافروں کے لیے سفری رہنمائی</li>
+<li>فلائٹ کلاسز اور نشستوں کی معلومات</li>
+<li>ہوابازی اور مسافروں کی حفاظت سے متعلق آگاہی</li>
+<li>سفر سے متعلق دلچسپ کہانیاں اور مضامین</li>
+</ul>
+
+<h2>Independence & Transparency / شفافیت اور خود مختاری</h2>
+
+<p>
+fly.pakrail.online is not affiliated with Pakistan Aviation Authority, airlines, or any airport authority. All content is created for informational purposes only and is based on publicly available data and general knowledge.
+</p>
+
+<p class="urdu">
+fly.pakrail.online کا پاکستان ایوی ایشن اتھارٹی، کسی بھی ایئر لائن یا ایئرپورٹ اتھارٹی سے کوئی سرکاری تعلق نہیں ہے۔ ویب سائٹ پر موجود مواد صرف معلوماتی مقاصد کے لیے ہے اور عوامی ذرائع پر مبنی ہے۔
+</p>
+
+<h2>Our Vision / ہمارا وژن</h2>
+
+<p>
+Our vision is to build a reliable and user-friendly aviation information platform that helps people make better travel decisions, improves awareness, and promotes safe and informed air travel across Pakistan.
+</p>
+
+<p class="urdu">
+ہمارا وژن ایک ایسی قابلِ اعتماد اور صارف دوست ہوابازی معلوماتی ویب سائٹ بنانا ہے جو لوگوں کو بہتر سفری فیصلے کرنے میں مدد دے اور محفوظ ہوائی سفر کو فروغ دے۔
+</p>
+
+<h2>Contact & Feedback / رابطہ اور رائے</h2>
+
+<p>
+We value user feedback and continuously work to improve our content. If you have suggestions or corrections, please visit our Contact page and share your thoughts.
+</p>
+
+<p class="urdu">
+ہم صارفین کی رائے کو اہمیت دیتے ہیں اور اپنے مواد کو بہتر بنانے کی مسلسل کوشش کرتے ہیں۔ اگر آپ کے پاس کوئی تجاویز یا اصلاحات ہوں تو براہِ کرم ہم سے رابطہ کریں۔
+</p>
+
+</div>
+
+<div class="footer">
+© 2026 fly.pakrail.online | About Us | ہمارے بارے میں
+</div>
+
+</body>
+</html>
