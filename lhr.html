@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- GetYourGuide Analytics -->
-
-<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="RQCGLSZ"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pakistan Flights Schedule</title>
@@ -18,12 +15,10 @@
   .search-panel {
     display:flex;
     flex-wrap:wrap;
-    justify-content:flex-start;
-    align-items:center;
+    justify-content:center;
     gap:10px;
-    margin:0 auto 20px auto;
-    max-width: calc(100% - 265px);  /* same as table-wrapper */
-}
+    margin-bottom:20px;
+  }
 
   select, input[type="date"], button, #tableSearch {
     padding:10px;
@@ -43,42 +38,37 @@
   button:hover { background-color:#16334a; }
 
   /* ===== MAIN LAYOUT WITH ADS ===== */
- .main-layout {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-  max-width: 1400px;
-  margin: auto;
-}
- .ad-panel {
-  width: 250px;   /* increased */
-  min-width: 250px;
-  height: calc(100vh - 260px);
-  background: #eaeaea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 14px;
-  flex-shrink: 0;   /* IMPORTANT */
-  position: sticky;
-  top: 10px;
-}
-  .table-wrapper {
-  width: calc(100% - 265px);  /* remaining space after ad */
-  overflow-x: auto;
-}
+  .main-layout {
+    display:flex;
+    gap:10px;
+    align-items:flex-start; /* IMPORTANT: stop stretching */
+  }
 
-table {
-  width:100%;
-  border-collapse:collapse;
-  background:#fff;
-  table-layout: fixed;   /* IMPORTANT */
-}
-  th, td {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
+  .ad-panel {
+    width:160px;
+    height:calc(100vh - 260px); /* fixed viewport height */
+    background:#eaeaea;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#666;
+    font-size:14px;
+    flex-shrink:0;
+    position:sticky;
+    top:10px;
+  }
+
+  .table-wrapper {
+    flex:1;
+    overflow-x:auto;
+  }
+
+  table {
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    min-width:600px;
+  }
 
   th, td {
     padding:8px;
@@ -149,14 +139,6 @@ nav a {
 
   nav.show a {
     display: block;
-  }
-
-    .main-layout {
-    flex-direction: column;
-  }
-
-  .table-wrapper {
-    width: 100% !important;
   }
 }
   
@@ -231,11 +213,10 @@ footer a:hover {
 <!-- ===== TABLE + ADS ===== -->
 <div class="main-layout">
 
-  <!-- LEFT GOOGLE AD 
+  <!-- LEFT GOOGLE AD -->
   <div class="ad-panel">
   
   </div>
-  -->
 
   <!-- TABLE -->
   <div class="table-wrapper">
@@ -259,7 +240,7 @@ footer a:hover {
 
   <!-- RIGHT GOOGLE AD -->
   <div class="ad-panel">
- <div data-gyg-href="https://widget.getyourguide.com/default/availability.frame" data-gyg-tour-id="280242" data-gyg-locale-code="en-US" data-gyg-currency="EUR" data-gyg-widget="availability" data-gyg-variant="horizontal" data-gyg-partner-id="RQCGLSZ"><span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/">GetYourGuide</a></span></div>
+ 
   </div>
 
 </div>
