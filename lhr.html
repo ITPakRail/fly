@@ -18,10 +18,12 @@
   .search-panel {
     display:flex;
     flex-wrap:wrap;
-    justify-content:center;
+    justify-content:flex-start;
+    align-items:center;
     gap:10px;
-    margin-bottom:20px;
-  }
+    margin:0 auto 20px auto;
+    max-width: calc(100% - 265px);  /* same as table-wrapper */
+}
 
   select, input[type="date"], button, #tableSearch {
     padding:10px;
