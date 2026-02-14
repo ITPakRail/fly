@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Travel Guide & Flight Classes - fly.pakrail.online</title>
+
 <style>
-body {
+body{
     margin:0;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
     background:#f2f2f2;
-    direction: ltr;
 }
-header {
+
+/* ===== HEADER ===== */
+header{
     background:#2e7d32;
     color:white;
     padding:20px;
@@ -19,104 +21,144 @@ header {
     font-size:28px;
     font-weight:bold;
 }
-nav {
+
+/* ===== NAVIGATION ===== */
+nav{
     background:#2e7d32;
     padding:10px;
     display:flex;
     flex-wrap:wrap;
     align-items:center;
 }
-nav a, .dropbtn {
+
+nav a, .dropbtn{
     color:white;
     background:black;
     text-decoration:none;
     padding:10px 15px;
     display:inline-block;
     font-weight:bold;
+    border:none;
+    cursor:pointer;
 }
-nav a:hover, .dropdown:hover .dropbtn {
+
+nav a:hover, .dropdown:hover .dropbtn{
     background:#81c784;
     color:#000;
 }
-.dropdown {
+
+.dropdown{
     position:relative;
     display:inline-block;
 }
-.dropdown-content {
+
+.dropdown-content{
     display:none;
     position:absolute;
     background:black;
     min-width:200px;
-    box-shadow:0px 8px 16px rgba(0,0,0,0.2);
     z-index:1;
 }
-.dropdown-content a {
+
+.dropdown-content a{
     color:white;
     padding:10px 15px;
     text-decoration:none;
     display:block;
 }
-.dropdown-content a:hover {
+
+.dropdown-content a:hover{
     background:#f1f1f1;
+    color:#000;
 }
-.dropdown:hover .dropdown-content {
+
+.dropdown:hover .dropdown-content{
     display:block;
 }
-.content-section {
-    max-width:1000px;
-    margin:20px auto;
+
+/* ===== MAIN LAYOUT ===== */
+.main-container{
+    display:flex;
+    justify-content:center;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* Side Ad Spaces */
+.ad-space{
+    width:160px;
+    min-height:600px;
+    margin:20px 10px;
+}
+
+/* Content Center */
+.content-section{
+    flex:1;
+    max-width:900px;
+    margin:20px 0;
     padding:20px;
     background:#fff;
     border-radius:6px;
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
-.content-section h2 {
+
+.content-section h2{
     color:#2e7d32;
     font-size:1.8rem;
     margin-bottom:15px;
 }
-.content-section h3 {
+
+.content-section h3{
     color:#2e7d32;
     font-size:1.4rem;
     margin-top:20px;
     margin-bottom:10px;
 }
-.content-section p {
+
+.content-section p{
     font-size:1rem;
-    line-height:1.6;
+    line-height:1.7;
     color:#333;
     margin-bottom:15px;
 }
-@media(max-width:768px){
-    nav {
-        flex-direction:column;
-    }
-    .dropdown-content {
-        position:static;
-        box-shadow:none;
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+    .ad-space{
+        display:none;
     }
 }
-    /* ===== FOOTER ===== */
-footer {
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+    }
+    .dropdown-content{
+        position:static;
+    }
+}
+
+/* ===== FOOTER ===== */
+footer{
   background:#2e7d32;
   color:#ffffff;
   padding:15px 10px;
   text-align:center;
-  font-family:Arial, sans-serif;
   margin-top:40px;
 }
 
-footer a {
+footer a{
   color:#ffeb3b;
   text-decoration:none;
   margin:0 8px;
 }
 
-footer a:hover {
+footer a:hover{
   text-decoration: underline;
 }
 </style>
 </head>
+
 <body>
 
 <header>fly.pakrail.online</header>
@@ -134,44 +176,59 @@ footer a:hover {
   </div>
 </nav>
 
-<div class="content-section">
-    <h2>Travel Guide & Flight Classes / سفر کا رہنما اور فلائٹ کلاسز</h2>
-    
-    <h3>How to Book Train Tickets in Pakistan / پاکستان میں فلائٹ ٹکٹ کیسے بک کریں؟</h3>
-    <p>
-        Booking flight tickets in Pakistan is now easier than ever. Travelers can book tickets online using official airline websites or mobile apps, ensuring instant confirmation and secure payment. Alternatively, tickets can still be booked at airport counters, though this may involve waiting and limited seat availability. Online booking also allows travelers to compare fares, check schedules, and choose preferred seats.
-    </p>
-    <p>
-        پاکستان میں فلائٹ ٹکٹ بک کرنا آج کل بہت آسان ہے۔ مسافر آفیشل ایئر لائن ویب سائٹس یا موبائل ایپس کے ذریعے آن لائن ٹکٹ بک کر سکتے ہیں جس سے فوری تصدیق اور محفوظ ادائیگی ممکن ہے۔ متبادل طور پر، ایئرپورٹ کے کاؤنٹرز پر بھی ٹکٹ بک کیے جا سکتے ہیں، تاہم اس میں انتظار اور محدود نشستیں شامل ہو سکتی ہیں۔ آن لائن بکنگ سے مسافر کرایوں کا موازنہ، شیڈول دیکھنے اور پسندیدہ نشستیں منتخب کرنے کی سہولت حاصل کرتے ہیں۔
-    </p>
+<div class="main-container">
 
-    <h3>Online vs Counter Booking / آن لائن بمقابلہ کاؤنٹر بکنگ</h3>
-    <p>
-        Online booking is faster, convenient, and allows travelers to make last-minute reservations. Counter booking is traditional and useful for those unfamiliar with digital tools, but it may require waiting in queues. Online systems also provide notifications for flight changes, delays, or cancellations, keeping passengers informed.
-    </p>
-    <p>
-        آن لائن بکنگ تیز، آسان اور آخری لمحات میں ریزرویشن کرنے کے لیے مفید ہے۔ کاؤنٹر بکنگ روایتی طریقہ ہے اور ان لوگوں کے لیے فائدہ مند ہے جو ڈیجیٹل آلات سے واقف نہیں ہیں، لیکن اس میں قطار میں انتظار کرنا پڑ سکتا ہے۔ آن لائن سسٹمز پرواز کی تبدیلیوں، تاخیر یا منسوخی کی اطلاع بھی فراہم کرتے ہیں تاکہ مسافر باخبر رہیں۔
-    </p>
+    <!-- Left Vertical Ad Space -->
+    <div class="ad-space">
+        <!-- 160x600 Vertical Banner Ad Code Here -->
+    </div>
 
-    <h3>Sleeper vs Economy vs AC / سلیپر، اکانومی اور اے سی کلاسز</h3>
-    <p>
-        Flights in Pakistan are categorized by class to suit different budgets and comfort levels. Economy class is affordable and ideal for short trips. AC (Air Conditioned) offers more comfort, spacious seating, and additional services. Sleeper or premium classes provide maximum comfort for long journeys with reclining seats and more legroom.
-    </p>
-    <p>
-        پاکستان میں پروازیں مختلف کلاسوں میں تقسیم کی گئی ہیں تاکہ مختلف بجٹ اور آرام کی ضروریات پوری ہوں۔ اکانومی کلاس سستی اور چھوٹے سفر کے لیے بہترین ہے۔ اے سی کلاس زیادہ آرام، کشادہ نشستیں اور اضافی خدمات فراہم کرتی ہے۔ سلیپر یا پریمیم کلاسیں طویل سفر کے لیے زیادہ آرامدہ ہیں جن میں ری کلائننگ سیٹ اور اضافی جگہ موجود ہوتی ہے۔
-    </p>
+    <!-- Center Content -->
+    <div class="content-section">
 
-    <h3>Travel Tips for Families / خاندان کے لیے سفر کے مشورے</h3>
-    <p>
-        Families traveling by air in Pakistan should plan ahead, book seats together, and keep essential items handy. Carry necessary identification, check luggage rules, and arrive at the airport early to avoid last-minute stress. It is also recommended to monitor weather and flight updates for a smooth journey.
-    </p>
-    <p>
-        پاکستان میں خاندان کے ساتھ ہوائی سفر کرنے والے مسافروں کو پیشگی منصوبہ بندی، ایک ساتھ نشستیں بک کرنے اور ضروری اشیاء ساتھ رکھنے کی سفارش کی جاتی ہے۔ شناختی دستاویزات ساتھ رکھیں، سامان کے قوانین دیکھیں اور ایئرپورٹ وقت سے پہلے پہنچیں تاکہ آخری لمحات کے دباؤ سے بچا جا سکے۔ پرواز اور موسم کی تازہ ترین معلومات حاصل کرنا بھی بہتر سفر کے لیے ضروری ہے۔
-    </p>
+        <h2>Travel Guide & Flight Classes / سفر کا رہنما اور فلائٹ کلاسز</h2>
+
+        <h3>How to Book Flight Tickets in Pakistan / پاکستان میں فلائٹ ٹکٹ کیسے بک کریں؟</h3>
+        <p>
+        Booking airline tickets in Pakistan has become simple and convenient. Passengers can reserve seats through official airline websites, travel agency portals, or mobile applications. Online booking allows secure digital payments, instant confirmation, seat selection, and fare comparison. Travelers can also check baggage rules and flight schedules before confirming their booking.
+        </p>
+        <p>
+        پاکستان میں فلائٹ ٹکٹ بک کرنا اب بہت آسان ہو چکا ہے۔ مسافر آفیشل ایئر لائن ویب سائٹس، ٹریول ایجنسی پورٹلز یا موبائل ایپس کے ذریعے نشستیں ریزرو کر سکتے ہیں۔ آن لائن بکنگ محفوظ ادائیگی، فوری تصدیق، نشست کا انتخاب اور کرایوں کا موازنہ فراہم کرتی ہے۔ مسافر بکنگ سے پہلے سامان کے قواعد اور فلائٹ شیڈول بھی دیکھ سکتے ہیں۔
+        </p>
+
+        <h3>Online Booking vs Airport Counter / آن لائن بکنگ بمقابلہ ایئرپورٹ کاؤنٹر</h3>
+        <p>
+        Online booking saves time and offers discounted fares in many cases. It allows passengers to receive real-time updates about delays, rescheduling, or cancellations. Airport counter booking is suitable for passengers who prefer in-person assistance, but it may involve waiting time and limited seat options during peak travel seasons.
+        </p>
+        <p>
+        آن لائن بکنگ وقت کی بچت کرتی ہے اور اکثر رعایتی کرایے فراہم کرتی ہے۔ یہ پرواز میں تاخیر، تبدیلی یا منسوخی کی فوری اطلاع بھی دیتی ہے۔ ایئرپورٹ کاؤنٹر سے ٹکٹ لینا ان مسافروں کے لیے بہتر ہے جو ذاتی مدد کو ترجیح دیتے ہیں، تاہم مصروف سیزن میں نشستوں کی دستیابی محدود ہو سکتی ہے۔
+        </p>
+
+        <h3>Economy, Business & First Class / اکانومی، بزنس اور فرسٹ کلاس</h3>
+        <p>
+        Airlines offer different travel classes to meet various comfort and budget needs. Economy class is affordable and ideal for short and domestic flights. Business class provides wider seats, better meals, priority boarding, and additional baggage allowance. First class offers luxury seating, premium services, and maximum comfort for long international journeys.
+        </p>
+        <p>
+        ایئر لائنز مختلف کلاسز فراہم کرتی ہیں تاکہ مختلف بجٹ اور آرام کی ضروریات پوری کی جا سکیں۔ اکانومی کلاس سستی ہوتی ہے اور مختصر یا اندرونِ ملک پروازوں کے لیے مناسب ہے۔ بزنس کلاس میں کشادہ نشستیں، بہتر کھانا، ترجیحی بورڈنگ اور اضافی سامان کی سہولت ہوتی ہے۔ فرسٹ کلاس طویل بین الاقوامی سفر کے لیے اعلیٰ معیار کی آسائش اور بہترین خدمات فراہم کرتی ہے۔
+        </p>
+
+        <h3>Travel Tips for Air Passengers / ہوائی مسافروں کے لیے اہم مشورے</h3>
+        <p>
+        Air passengers should arrive at the airport at least two to three hours before departure for international flights and at least one hour for domestic travel. Keep identification documents and boarding passes ready. Follow baggage weight regulations carefully and avoid carrying restricted items. Staying updated with airline notifications ensures a smooth travel experience.
+        </p>
+        <p>
+        ہوائی مسافروں کو بین الاقوامی پرواز کے لیے کم از کم دو سے تین گھنٹے پہلے اور اندرونِ ملک پرواز کے لیے کم از کم ایک گھنٹہ پہلے ایئرپورٹ پہنچنا چاہیے۔ شناختی دستاویزات اور بورڈنگ پاس تیار رکھیں۔ سامان کے وزن کے قوانین پر عمل کریں اور ممنوعہ اشیاء ساتھ نہ رکھیں۔ ایئر لائن کی تازہ ترین معلومات حاصل کرنا آرام دہ سفر کے لیے ضروری ہے۔
+        </p>
+
+    </div>
+
+    <!-- Right Vertical Ad Space -->
+    <div class="ad-space">
+        <!-- 160x600 Vertical Banner Ad Code Here -->
+    </div>
 
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer>
    <div>
     <a href="privacy-policy.html">Privacy Policy</a> |
@@ -180,7 +237,7 @@ footer a:hover {
     <a href="contact-us.html">Contact</a>
   </div>
   <div style="font-size:13px;color:#dcdcdc;">
-    Independent information portal.
+    Independent aviation information portal.
       © <span id="year"></span> fly.pakrail.online
   </div>
 </footer>
