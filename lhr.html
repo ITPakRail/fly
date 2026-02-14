@@ -41,37 +41,42 @@
   button:hover { background-color:#16334a; }
 
   /* ===== MAIN LAYOUT WITH ADS ===== */
-  .main-layout {
-    display:flex;
-    gap:10px;
-    align-items:flex-start; /* IMPORTANT: stop stretching */
-  }
-
-  .ad-panel {
-    width:160px;
-    height:calc(100vh - 260px); /* fixed viewport height */
-    background:#eaeaea;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#666;
-    font-size:14px;
-    flex-shrink:0;
-    position:sticky;
-    top:10px;
-  }
-
+ .main-layout {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: auto;
+}
+ .ad-panel {
+  width: 250px;   /* increased */
+  min-width: 250px;
+  height: calc(100vh - 260px);
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+  flex-shrink: 0;   /* IMPORTANT */
+  position: sticky;
+  top: 10px;
+}
   .table-wrapper {
-    flex:1;
-    overflow-x:auto;
-  }
+  width: calc(100% - 265px);  /* remaining space after ad */
+  overflow-x: auto;
+}
 
-  table {
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-    min-width:600px;
-  }
+table {
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  table-layout: fixed;   /* IMPORTANT */
+}
+  th, td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
   th, td {
     padding:8px;
